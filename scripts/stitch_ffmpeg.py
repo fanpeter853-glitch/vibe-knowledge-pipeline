@@ -11,6 +11,7 @@
 """
 import argparse
 import glob
+import json
 import os
 import subprocess
 import sys
@@ -18,13 +19,21 @@ import sys
 XF = 0.5
 
 
+def probe_duration(path):
+    r = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "json", path], capture_output=True, text=True)
+    return float(json.loads(r.stdout)["format"]["duration"])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--videos", required=True)
     ap.add_argument("--audios", default=None)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--duration", type=float, default=10.0,
-                    help="每段时长（秒），默认 10；按实际段时长改")
+    ap.add_argument("--duration", type=float, default=None,
+                    help="每段时长（秒）；不传则用 ffprobe 读每段实际时长，"
+                         "8 拍时长各不相同时必须用实际时长算 xfade 偏移")
     a = ap.parse_args()
     files = sorted(glob.glob(os.path.join(a.videos, "*.mp4")))
     if not files:
@@ -38,10 +47,13 @@ def main():
     for i in range(len(files)):
         filt.append(f"[{i}:v]scale=1080:1920:force_original_aspect_ratio=increase,"
                     f"crop=1080:1920,format=yuv420p,settb=AVTB[v{i}]")
-    prev, off = "v0", a.duration - XF
+    # 每段实际时长（xfade 偏移必须按实际时长算，各拍时长不同时不能共用一个值）
+    durs = [a.duration if a.duration else probe_duration(f) for f in files]
+    print("各段时长：", [round(d, 2) for d in durs])
+    prev, off = "v0", durs[0] - XF
     for i in range(1, len(files)):
         filt.append(f"[{prev}][v{i}]xfade=transition=fade:duration={XF}:offset={off}[x{i}]")
-        prev, off = f"x{i}", off + a.duration - XF
+        prev, off = f"x{i}", off + durs[i] - XF
     filt.append(f"[{prev}]format=yuv420p[out]")
     cmd += ["-filter_complex", ";".join(filt), "-map", "[out]"]
     if a.audios:

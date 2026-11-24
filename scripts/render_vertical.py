@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
 """Node 5：竖屏渲染前置检查（只检查，不渲染）。
 
+渲染路线（2026-11-24，Peter 已定；v0.2.0 写回工作流）：HyperFrames / Remotion，
+黑色系默认，脚本 render/build_beats_v3.py；不装 Playwright / Chromium，不用 cine 引擎。
+不用配音，音乐版即成片。
+
 用法：
   python3 scripts/render_vertical.py --film skills/vibe-knowledge/templates/film_skeleton_vertical.html
 
 检查：
 - film HTML 存在，且画幅是 1080×1920；
-- 本机有没有 Playwright / Chromium（渲染逐帧截图要用）。
-缺 Playwright / Chromium 时直接报错退出，不会假装出片。
-真正的逐帧渲染等渲染路线定了再接（见 docs/vertical-render.md）。
+- 打印 HyperFrames / Remotion 的下一步，不再把缺 Playwright 当成失败。
+
+真正的渲染由 HyperFrames（标题卡、步骤卡、关键概念卡，HTML/CSS 转 MP4）
+或 Remotion（批量 / 动态模板）做，再用 scripts/stitch_ffmpeg.py 拼合。
+HyperFrames 本机已装（render/package.json，hyperframes ^0.9.88），v3 已渲出；
+Remotion 模板未实装，只作批量模板备选。这个脚本只做前置检查。
 """
 import argparse
-import re
-import shutil
 import sys
 
 
@@ -29,19 +34,11 @@ def main():
         print("film 里没写 1080×1920，先把竖屏画幅写进骨架再渲染。")
         return 2
     print("film 检查通过：竖屏 1080×1920。")
-    missing = []
-    if shutil.which("chromium") is None and shutil.which("chromium-browser") is None \
-            and shutil.which("google-chrome") is None:
-        missing.append("Chromium/Chrome（浏览器）")
-    try:
-        import playwright  # noqa: F401
-    except ImportError:
-        missing.append("Playwright（Python 包）")
-    if missing:
-        print("渲染跑不通，缺：" + "、".join(missing) + "。")
-        print("先装好再渲染，不要强行安装，也不要谎称已出片。")
-        return 2
-    print("渲染环境齐了（Playwright + Chromium），可以接逐帧渲染。")
+    print("渲染路线：HyperFrames / Remotion（2026-11-24 已定，不装 Playwright/Chromium）。")
+    print("下一步：HyperFrames 做标题卡/步骤卡/关键概念卡（HTML/CSS 转 MP4）；")
+    print("需要批量/动态的拍改用 Remotion 模板；再用 scripts/stitch_ffmpeg.py 拼合。")
+    print("注意：HyperFrames 本机已装，v3 已按 render/build_beats_v3.py 渲出；")
+    print("Remotion 模板未实装，只作备选，不要谎称已有。")
     return 0
 
 

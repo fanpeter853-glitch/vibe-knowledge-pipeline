@@ -1,4 +1,4 @@
-> 强制默认 BGM 相关内容；默认改成竖屏 1080×1920、Peter 自己配音。
+> 强制默认 BGM 相关内容；默认改成竖屏 1080×1920、不用配音，配乐版即成片。
 > 原文见上游 andyhuo520/vibe-knowledge（MIT）。
 
 来源：github.com/Leonxlnx/earshot（MIT，2963★）。252 个音效全部以「配方代码」存放，按编号几秒渲染出来，不联网、不需要模型；同一个音效换 seed 就是新的 take。另有听觉质检（timeline / sheet / critique），那部分要下载约 1.1 GB 模型，按需再装。

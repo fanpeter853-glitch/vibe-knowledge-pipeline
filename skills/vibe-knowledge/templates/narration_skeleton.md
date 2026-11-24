@@ -2,7 +2,7 @@
 
 > 来源思路：andyhuo520/vibe-knowledge 的 6 种母版（概念），
 > 这里的文字是我方按 Peter 的小号重写的短版骨架，不是原仓库的骨架文件。
-> 完整骨架在 `templates/narration/A–F.json`（已改编：配音引擎改成 Peter 自己录）。
+> 完整骨架在 `templates/narration/A–F.json`（已改编：不用配音，音乐版即成片）。
 > 60–90 秒约 330–500 字，先猜后讲、标题延后、一个主道具贯穿、结尾回问。
 
 ## A · 猜谜概念片（小号首选）

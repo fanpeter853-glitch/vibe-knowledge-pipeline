@@ -1,1 +1,71 @@
-{"shots":[{"duration_sec":0,"name":"B01 冷开场","narration":"[待填]","shot_id":"B01","source":"[待填：出处，见 facts.md]","visual":"[待填：画面关键词，≤8 字一组]"}],"topic":"[待填：小号第一期知识点]","total_sec":0}
+{
+ "topic": "人为什么会对某段回忆念念不忘",
+ "template": "A 猜谜概念片",
+ "total_sec": 60.6,
+ "shots": [
+  {
+   "shot_id": "B01",
+   "name": "B01 冷开场",
+   "narration": "你脑子里，有没有一段回忆，明明过去很久了，一想起来，却清楚得像昨天刚发生？",
+   "duration_sec": 6.7,
+   "visual": "光点亮起",
+   "source": "—"
+  },
+  {
+   "shot_id": "B02",
+   "name": "B02 点题",
+   "narration": "这个反差背后，就是人为什么会对某段回忆念念不忘。",
+   "duration_sec": 4.4,
+   "visual": "念念不忘",
+   "source": "—"
+  },
+  {
+   "shot_id": "B03",
+   "name": "B03 痛点",
+   "narration": "奇怪的是，越想忘越忘不掉，越跟人讲越记得牢。很多人以为是自己太念旧，其实大脑在背后动了手脚。",
+   "duration_sec": 8.4,
+   "visual": "越想越牢",
+   "source": "Roediger & Karpicke 2006，见 facts.md 4"
+  },
+  {
+   "shot_id": "B04a",
+   "name": "B04a 情绪贴标签",
+   "narration": "第一，情绪会贴标签。情绪越强，这段存得越结实，杏仁核不存记忆，只推一把，让海马体加粗存档。",
+   "duration_sec": 8.2,
+   "visual": "情绪贴标签",
+   "source": "Cahill & McGaugh 1998，见 facts.md 1"
+  },
+  {
+   "shot_id": "B04b",
+   "name": "B04b 每次重写",
+   "narration": "第二，每想一次，记忆就重写一次。回忆不是放录像，是大脑把碎片重新拼一遍，细节会变，感觉留下来了，清晰不等于准确。",
+   "duration_sec": 10.2,
+   "visual": "每次重写",
+   "source": "Talarico & Rubin 2003；Smithsonian 2013，见 facts.md 2、3"
+  },
+  {
+   "shot_id": "B04c",
+   "name": "B04c 没说完的事",
+   "narration": "第三，没说完的事容易挂心上，有人发现没做完的更容易被记住，但最新研究说这条不一定普遍成立，别当定律。",
+   "duration_sec": 9.1,
+   "visual": "没说完的事",
+   "source": "Zeigarnik 1927；2025 系统综述，见 facts.md 5、6"
+  },
+  {
+   "shot_id": "B05",
+   "name": "B05 金句",
+   "narration": "所以你忘不掉的，往往不是那件事本身，而是当时那份情绪，和后来一次次想起它的你。",
+   "duration_sec": 7.1,
+   "visual": "忘不掉的是情绪",
+   "source": "—"
+  },
+  {
+   "shot_id": "B06",
+   "name": "B06 回问",
+   "narration": "你脑子里那段忘不掉的回忆，是开心的多，还是难过的多？评论区打1还是打2。",
+   "duration_sec": 6.5,
+   "visual": "打1还是打2",
+   "source": "—"
+  }
+ ]
+}

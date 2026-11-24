@@ -85,7 +85,7 @@ def main():
             sys.exit(f"找不到音色参照：{src}")
         ref.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy(src, ref)
-        print(f"✓ 音色参照（Peter 自己录音）：{src} → {ref.relative_to(ws)}")
+        print(f"✓ 音色参照（v0.2.0 已删配音板块，此处仅作历史兼容，不再用）：{src} → {ref.relative_to(ws)}")
     else:
         print("音色参照：未传 --voice-ref，不拷默认音色（本仓库不用 AI 默认音色）")
 
@@ -101,7 +101,7 @@ def main():
     (L / "film.js").write_text(film, encoding="utf-8")
     shutil.copy(T / "facts.md", L / "facts.md")
     (L / "assets.json").write_text(json.dumps({"_how": "代码资产清单（本仓库改编版）：只列代码画的资产，不列付费生成资产；status: plan / done", "items": []}, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"✓ 新一期：{L}\n  母版 {a.template} · {a.title}\n  下一步：写 facts.md → narration.json → assets.json（代码资产清单，无报价）→ 配音 → film.js")
+    print(f"✓ 新一期：{L}\n  母版 {a.template} · {a.title}\n  下一步：写 facts.md → narration.json → assets.json（代码资产清单，无报价）→ 配乐 → film.js（v0.2.0：不用配音）")
 
 
 if __name__ == "__main__":

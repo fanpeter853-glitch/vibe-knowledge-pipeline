@@ -1,5 +1,7 @@
 # Vibe 代码动画路线 — 改编版（andyhuo520/vibe-knowledge，只取核心）
 
+> 2026-11-24 v0.2.0 改动（Peter 确认）：配音板块已删、改为配乐板块（默认 Scott Buckley《Undertow》，CC-BY 4.0，须署名）；渲染改为 HyperFrames / Remotion，黑色系默认，脚本 render/build_beats_v3.py；不装 Playwright / Chromium。本文件其余“自己配音 / Playwright 待验证”说法是首次改编时的历史记录，以 v0.2.0 和 pipeline_dag.json 0.2.0 为准。
+
 > 状态：**改编文档已写好，原仓库代码文件未复制、未运行、未安装。**
 >
 > 原因：2026-11-24 在处理 `/tmp/vibe-compare/andyhuo520_vibe-knowledge` 时，系统执行风险检查未通过。
@@ -106,8 +108,8 @@
    再按 Peter 自己配音的实际语速校准，不要编数字。
 4. 出分镜：每拍画面只写关键词 / 数字 / 出处，整句交给旁白。
 5. Peter 看旁白稿加分镜，确认后才往下走。
-6. 代码成片（待验证，需 Playwright / Chromium / cine 引擎，见下“还缺什么”）。
-7. Peter 自己配音，按分段录音单录，剪映拼合，FFmpeg 验帧，检查烧录文字、字幕、数字、图表。
+6. 代码成片（v0.2.0：HyperFrames / Remotion，黑色系默认，render/build_beats_v3.py）。
+7. 配乐（v0.2.0：不用配音，音乐版即成片），FFmpeg 拼合画面 + 配乐，验帧，检查烧录文字、字幕、数字、图表。
 8. 确认后才发布，发布时勾选 / 标注 AI 生成。
 
 ## 还缺什么（截至 2026-11-24，未跑通的部分）

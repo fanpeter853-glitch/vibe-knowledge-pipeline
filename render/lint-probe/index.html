@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="./gsap.min.js"></script>
+<style>@font-face { font-family:'Noto Sans CJK SC'; font-weight:400; font-style:normal; font-display:swap; src:url('assets/fonts/sans-regular.woff2') format('woff2'); }
+@font-face { font-family:'Noto Sans CJK SC'; font-weight:700; font-style:normal; font-display:swap; src:url('assets/fonts/sans-bold.woff2') format('woff2'); }
+@font-face { font-family:'Noto Serif CJK SC'; font-weight:400; font-style:normal; font-display:swap; src:url('assets/fonts/serif-regular.woff2') format('woff2'); }
+@font-face { font-family:'Noto Serif CJK SC'; font-weight:700; font-style:normal; font-display:swap; src:url('assets/fonts/serif-bold.woff2') format('woff2'); }
+
+
+:root { --paper1:#fbf7ee; --paper2:#f3ead8; --ink:#2a2420; --muted:#7d7266;
+        --cinnabar:#b23a2e; --gold:#d9a441; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:var(--paper1); }
+#root { width:1080px; height:1920px; position:relative; overflow:hidden;
+  background:linear-gradient(180deg, var(--paper1) 0%, var(--paper2) 100%);
+  font-family:"Noto Sans CJK SC",sans-serif; color:var(--ink); }
+#root::before { content:""; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(42,36,32,0.10) 1.5px, transparent 1.5px);
+  background-size:48px 48px; }
+.wash { position:absolute; width:900px; height:900px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,164,65,0.18) 0%, rgba(217,164,65,0) 65%);
+  left:90px; top:380px; }
+.kicker { position:absolute; left:90px; top:150px; font-size:40px; letter-spacing:14px;
+  color:var(--cinnabar); font-weight:700; }
+.dotwrap { position:absolute; left:0; top:520px; width:1080px; height:420px;
+  display:flex; align-items:center; justify-content:center; }
+.dot { width:150px; height:150px; border-radius:50%;
+  background:radial-gradient(circle at 38% 35%, #ffe9a8 0%, var(--gold) 45%, #b97f1e 100%);
+  box-shadow:0 0 60px 30px rgba(217,164,65,0.55), 0 0 160px 80px rgba(217,164,65,0.25); }
+.dot.dim { width:90px; height:90px; box-shadow:0 0 30px 12px rgba(217,164,65,0.35); }
+.dot.big { width:220px; height:220px; box-shadow:0 0 90px 45px rgba(217,164,65,0.65), 0 0 220px 110px rgba(217,164,65,0.30); }
+.ring { position:absolute; border:3px solid rgba(178,58,46,0.55); border-radius:50%; }
+.frag { position:absolute; width:56px; height:56px; border-radius:50%;
+  background:radial-gradient(circle at 38% 35%, #ffe9a8 0%, var(--gold) 60%, #b97f1e 100%);
+  box-shadow:0 0 24px 8px rgba(217,164,65,0.45); }
+.tag { position:absolute; left:640px; top:560px; background:var(--cinnabar); color:#fff;
+  font-size:36px; font-weight:700; padding:10px 22px; border-radius:12px; }
+.openring { width:230px; height:230px; border-radius:50%;
+  border:10px solid var(--gold); border-top-color:transparent;
+  transform:rotate(40deg); box-shadow:0 0 40px rgba(217,164,65,0.35); }
+.twin { display:flex; gap:120px; align-items:center; }
+.twin .d { text-align:center; }
+.twin .d .dot { width:130px; height:130px; }
+.twin .d .n { font-size:56px; font-weight:800; margin-top:24px; }
+.twin .d.two .dot { background:radial-gradient(circle at 38% 35%, #e8e2d8 0%, #8a8175 55%, #5c554b 100%);
+  box-shadow:0 0 40px 16px rgba(90,80,70,0.30); }
+.keyword { position:absolute; left:0; top:1010px; width:1080px; text-align:center;
+  font-family:"Noto Serif CJK SC",serif; font-weight:800;
+  font-size:118px; line-height:1.25; color:var(--ink); }
+.sub { position:absolute; left:0; top:1240px; width:1080px; text-align:center;
+  font-size:52px; color:var(--muted); letter-spacing:6px; }
+.foot { position:absolute; left:90px; bottom:150px; font-size:30px; color:var(--muted); }
+.note { position:absolute; right:90px; bottom:150px; font-size:30px; color:var(--muted); }
+.progress { position:absolute; left:90px; bottom:80px; display:flex; gap:18px; }
+.progress i { width:34px; height:10px; border-radius:5px; background:rgba(42,36,32,0.18); }
+.progress i.on { background:var(--cinnabar); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0"
+     data-duration="6.7" data-width="1080" data-height="1920">
+  <div class="wash"></div>
+  <div class="kicker" id="kicker">想一想</div>
+  <div class="dotwrap" id="dotwrap"><div class="dot dim" id="dot"></div></div>
+  <div class="keyword" id="keyword">那段回忆</div>
+  <div class="sub" id="sub">像昨天一样</div>
+  
+  <div class="progress"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#kicker", {opacity:0, y:-16}, {opacity:1, y:0, duration:.6, ease:"power2.out"}, 0);
+tl.fromTo("#dot",{scale:.4,opacity:0},{scale:1,opacity:1,duration:1.2,ease:"power2.out"},0);tl.to("#dot",{scale:1.25,duration:1.6,ease:"sine.inOut",yoyo:true,repeat:1},1.4);
+tl.fromTo("#keyword", {opacity:0, filter:"blur(10px)"}, {opacity:1, filter:"blur(0px)", duration:.7, ease:"power4.out"}, .5);
+tl.fromTo("#sub", {opacity:0, y:18}, {opacity:1, y:0, duration:.6, ease:"power2.out"}, 1.1);
+tl.fromTo(".foot, .note", {opacity:0}, {opacity:1, duration:.6}, 1.6);
+tl.fromTo(".progress", {opacity:0}, {opacity:1, duration:.6}, 1.8);
+window.__timelines["main"] = tl;
+tl.seek(0);
+</script>
+</body>
+</html>
