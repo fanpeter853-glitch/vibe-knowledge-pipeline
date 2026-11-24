@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Vibe film skeleton — vertical 1080x1920</title>
+<style>
+  /* 竖屏骨架（自己写的）：1080x1920，浅色、非纯色、带图案元素，不要模糊背景。 */
+  html, body { margin: 0; padding: 0; background: #f6f1e7; }
+  #stage { width: 1080px; height: 1920px; position: relative; overflow: hidden;
+    background: linear-gradient(180deg, #fbf7ee 0%, #f3ead8 100%);
+    font-family: "Noto Sans SC", sans-serif; color: #2a2420; }
+  #stage::before { content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(42,36,32,0.10) 1.5px, transparent 1.5px);
+    background-size: 48px 48px; }
+  .keyword { position: absolute; left: 90px; top: 760px; font-size: 120px;
+    font-weight: 800; line-height: 1.2; }
+  .sub { position: absolute; left: 90px; top: 1020px; font-size: 44px; color: #7d7266; }
+  .foot { position: absolute; left: 90px; bottom: 90px; font-size: 30px; color: #7d7266; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="keyword" id="keyword">[关键词]</div>
+  <div class="sub" id="sub">[一句话，不超过 8 个字一组]</div>
+  <div class="foot" id="foot">[出处：……]</div>
+</div>
+<script>
+  // 渲染契约（自己写的，占位）：按绝对时间 t 摆状态，不依赖上一帧。
+  // 真正的逐帧渲染等 docs/vertical-render.md 里的路线定了再接；
+  // 现在只做骨架，window.__film.seek(t) 由渲染器调用。
+  window.__film = {
+    seek(t) {
+      const k = document.getElementById('keyword');
+      k.style.opacity = t < 0.5 ? 0 : 1;
+    }
+  };
+</script>
+</body>
+</html>

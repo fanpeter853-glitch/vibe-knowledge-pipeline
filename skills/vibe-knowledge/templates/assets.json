@@ -1,0 +1,12 @@
+{
+ "_how": "代码资产清单（本仓库改编版）：只列代码画的资产，不列付费生成资产；status: plan / done",
+ "items": [
+  {
+   "id": "k01",
+   "kind": "code",
+   "use": "B01 冷开场关键词卡",
+   "file": "film.js",
+   "status": "plan"
+  }
+ ]
+}

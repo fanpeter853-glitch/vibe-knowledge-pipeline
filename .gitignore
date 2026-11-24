@@ -1,0 +1,30 @@
+# Build / render outputs
+output/
+build/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.m4a
+frames/
+stills/
+*.png
+*.jpg
+*.jpeg
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node / browser render
+node_modules/
+.playwright/
+
+# Local notes, keys, personal material — never commit
+*.env
+*.key
+*.pem
+local/
+.DS_Store

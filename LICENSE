@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2026 fanpeter853-glitch
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Attribution — source work this repository adapts (not copied verbatim):
+
+- Source repository: andyhuo520/vibe-knowledge
+  https://github.com/andyhuo520/vibe-knowledge
+- Source license: MIT, Copyright (c) 2026 Berryxia (andyhuo520)
+- What was adapted: the workflow idea — one knowledge point → one narrated,
+  fully sourced code-rendered short video; the six script templates;
+  the facts-list rule (every number, name, year and quotation must carry
+  a source). The core files listed in README.md ("复制清单") were copied
+  from the source on 2026-11-24 after the user confirmed in plain words,
+  after seeing the execution-risk warning, and were redacted: the paid
+  enhancement tier, the default AI voice, and the forced default BGM were
+  removed; the default was changed to vertical 1080x1920 with the user's
+  own voice. The scripts in scripts/ and the film skeleton in
+  skills/vibe-knowledge/templates/film_skeleton_vertical.html were
+  written from scratch for this repository.
+- What was NOT copied: the paid-tier tools and references, the remaining
+  40 styles, the default BGM and default voice assets, the sample videos,
+  and the cine rendering engine (see SOURCE.md).
